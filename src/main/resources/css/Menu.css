@@ -1,0 +1,55 @@
+.menu{
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #240b36;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+}
+.menu-item{
+    padding: 1.2em;
+}
+#derecha:hover{
+    background-color: #42B881;
+}
+
+.menu-enlace{
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.togle-menu{
+    width: 40px;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    cursor: pointer;
+    filter: invert(1);
+    z-index: 1;
+}
+.img-menu{
+    max-width: 100%;
+}
+
+@media screen and (min-width: 900px) {
+    .menu{
+        flex-direction: row;
+        transform: translateY(0);
+    }
+} 
+@media screen and (min-width: 900px) {
+    .togle-menu{
+        display: none;
+    }
+} 
+
+.menu--mostrar{
+    transform: translateY(0);
+}
+
+
