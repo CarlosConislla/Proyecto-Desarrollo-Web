@@ -17,8 +17,9 @@ public class Mensaje {
     private String email;
 
 
-    private String mensaje;
+    private String contenido;
 
+    private String estado;
 
     public int getId() {
         return id;
@@ -44,11 +45,19 @@ public class Mensaje {
         this.email = email;
     }
 
-    public String getMensaje() {
-        return mensaje;
+    public String getContenido() {
+        return contenido;
     }
 
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }
