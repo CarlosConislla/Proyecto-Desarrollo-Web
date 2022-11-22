@@ -27,4 +27,29 @@ public class HomeController {
     public String ventanaAdmin_user(){
         return "Principal";
     }
+
+    @GetMapping("sedes")
+    public String irASedes(){
+        return "/home/sedes";
+    }
+
+    @GetMapping("reservar")
+    public String irAReservar(){
+        return "/home/reserva";
+    }
+
+    @GetMapping("bebidas")
+    public String irABebidas(){
+        return "/home/bebidas";
+    }
+
+    @GetMapping("paraPicar")
+    public String irAParaPicar(){
+        return "/home/paraPicar";
+    }
+
+    @GetMapping("platosCarta")
+    public String irAPlatosCarta(){
+        return "/home/platosCarta";
+    }
 }

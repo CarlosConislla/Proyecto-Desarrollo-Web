@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/estiloProductos.css">
+        <title>Bebidas Alcoholicas</title>
+        <link
+                href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+                rel="stylesheet"
+                integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+                crossorigin="anonymous"
+        />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap" rel="stylesheet">
+    </head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">RESTOBAR PUPUCHIMA</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#nosotros">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#ofrecemos">Ofrecemos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#reserva">Reservas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#contacto">Contactanos</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br>
+<main class="contendor">
+
+    <div class="titulo-catalogo">
+        <p>
+            Infaltables
+        </p>
+    </div>
+
+    <form class="form container">
+
+        <div class="caja caja1">
+            <img src="Bebidas Alcoholicas/Infaltables/Chilcano.jpg" class="img-producto">
+            <p class="titulo-producto">Chilcano</p>
+            <p class="precio-producto">Precio: S/ 13.00</p>
+            <div class="div-input">
+                <input type="submit" value="Agregar al carrito">
+            </div>
+        </div>
+
+        <div class="caja caja2">
+            <img src="Bebidas Alcoholicas/Infaltables/CubaLibre.jpg" class="img-producto">
+            <p class="titulo-producto">Cuba Libre</p>
+            <p class="precio-producto">Precio: S/ 13.00</p>
+            <div class="div-input">
+                <input type="submit" value="Agregar al carrito">
+            </div>
+        </div>
+
+        <div class="caja caja3">
+            <img src="Bebidas Alcoholicas/Infaltables/PiscoSour.jpg" class="img-producto">
+            <p class="titulo-producto">Pisco Sour</p>
+            <p class="precio-producto">Precio: S/ 16.00</p>
+            <div class="div-input">
+                <input type="submit" value="Agregar al carrito">
+            </div>
+        </div>
+
+        <div class="caja caja4">
+            <img src="Bebidas Alcoholicas/Infaltables/PiñaColada.jpg" class="img-producto">
+            <p class="titulo-producto">Piña Colada</p>
+            <p class="precio-producto">Precio: S/ 16.00</p>
+            <div class="div-input">
+                <input type="submit" value="Agregar al carrito">
+            </div>
+        </div>
+
+        <div class="caja caja5">
+            <img src="Bebidas Alcoholicas/Infaltables/Vodka.jpg" class="img-producto">
+            <p class="titulo-producto">Vodka c/ Naranaj</p>
+            <p class="precio-producto">Precio: S/ 13.00</p>
+            <div class="div-input">
+                <input type="submit" value="Agregar al carrito">
+            </div>
+        </div>
+
+
+        <div class="titulo-catalogo">
+            <p>
+                Especiales
+            </p>
+        </div>
+
+        <div class="caja caja1">
+            <img src="Bebidas Alcoholicas/Especiales/AppleMartini.jpg" class="img-producto">
+            <p class="titulo-producto">Apple Martini</p>
+            <p class="precio-producto">Precio: S/ 16.00</p>
+            <div class="div-input">
+                <input type="submit" value="Agregar al carrito">
+            </div>
+        </div>
+
+        <div class="caja caja2">
+            <img src="Bebidas Alcoholicas/Especiales/LagunaAzul.jpg" class="img-producto">
+            <p class="titulo-producto">Lacuna Azul</p>
+            <p class="precio-producto">Precio: S/ 13.00</p>
+            <div class="div-input">
+                <input type="submit" value="Agregar al carrito">
+            </div>
+        </div>
+
+        <div class="caja caja3">
+            <img src="Bebidas Alcoholicas/Especiales/MachuPichu.jpg" class="img-producto">
+            <p class="titulo-producto">Machu Pichu</p>
+            <p class="precio-producto">Precio: S/ 13.00</p>
+            <div class="div-input">
+                <input type="submit" value="Agregar al carrito">
+            </div>
+        </div>
+
+        <div class="caja caja4">
+            <img src="Bebidas Alcoholicas/Especiales/Margarita.jpg" class="img-producto">
+            <p class="titulo-producto">Margarita</p>
+            <p class="precio-producto">Precio: S/ 13.00</p>
+            <div class="div-input">
+                <input type="submit" value="Agregar al carrito">
+            </div>
+        </div>
+
+        <div class="caja caja5">
+            <img src="Bebidas Alcoholicas/Especiales/MargaritaBlue.jpg" class="img-producto">
+            <p class="titulo-producto">Margarita blue</p>
+            <p class="precio-producto">Precio: S/ 13.00</p>
+            <div class="div-input">
+                <input type="submit" value="Agregar al carrito">
+            </div>
+        </div>
+
+        <div class="titulo-catalogo">
+            <p>
+                Los Combos - Wisky de 750ml
+            </p>
+        </div>
+
+        <div class="caja caja1">
+            <img src="Bebidas Alcoholicas/Combos/BlackLabel.jpg" class="img-producto">
+            <p class="titulo-producto">Black Label + 1 red bull</p>
+            <p class="precio-producto">Precio: S/ 210.00</p>
+            <div class="div-input">
+                <input type="submit" value="Agregar al carrito">
+            </div>
+        </div>
+
+        <div class="caja caja2">
+            <img src="Bebidas Alcoholicas/Combos/RedLabel.jpg" class="img-producto">
+            <p class="titulo-producto">Red Label + Guarana 1L</p>
+            <p class="precio-producto">Precio: S/ 120.00</p>
+            <div class="div-input">
+                <input type="submit" value="Agregar al carrito">
+            </div>
+        </div>
+
+        <div class="caja caja3">
+            <img src="Bebidas Alcoholicas/Combos/BlackLabel.jpg" class="img-producto">
+            <p class="titulo-producto">2 Black Label + 1 red bull</p>
+            <p class="precio-producto">Precio: S/ 295.00</p>
+            <div class="div-input">
+                <input type="submit" value="Agregar al carrito">
+            </div>
+        </div>
+
+        <div class="titulo-catalogo">
+            <p>
+                Cervezas
+            </p>
+        </div>
+
+        <div class="caja caja1">
+            <img src="Bebidas Alcoholicas/Cervezas/Cervezas.jpg" class="img-producto">
+            <p class="titulo-producto">Cervezas</p>
+
+            <p class="precio-producto">Pilsen: S/ 8.00</p>
+            <p class="precio-producto">Cuzqueña: S/ 8.00</p>
+            <p class="precio-producto">Stella Artois: S/ 12.00</p>
+            <p class="precio-producto">Heineken: S/ 12.00</p>
+            <p class="precio-producto">Corona: S/ 12.00</p>
+
+            <div class="div-input">
+                <input type="submit" value="Agregar al carrito">
+            </div>
+        </div>
+
+
+    </form>
+
+</main>
+<script src="https://kit.fontawesome.com/c15b744a04.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+</body>
+</html>
