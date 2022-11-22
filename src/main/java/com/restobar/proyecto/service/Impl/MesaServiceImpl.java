@@ -12,7 +12,7 @@ import java.util.List;
 public class MesaServiceImpl implements MesaService {
 
     @Autowired
-    MesaRepository mesaRepository;
+    private MesaRepository mesaRepository;
 
     @Override
     public List<Mesa> listAll() {

@@ -10,11 +10,11 @@ public class Mesa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private long id;
 
     @NotNull(message = "Ingrese el número de la mesa")
     @Column(unique = true)
-    int mesa;
+    private int mesa;
 
     public long getId() {
         return id;

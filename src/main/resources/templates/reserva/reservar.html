@@ -18,19 +18,7 @@
         <div class="collapse navbar-collapse text-center" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="Home.jsp">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#nosotros">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#ofrecemos">Ofrecemos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#reserva">Reservas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#contacto">Contactanos</a>
+                    <a class="nav-link active" aria-current="page" href="/">Inicio</a>
                 </li>
             </ul>
         </div>
@@ -40,22 +28,34 @@
     <div class="img"><img th:src="@{/img/logofondo.png}" alt=""></div>
     <div class="info">
         <div class="contenedor-form">
-            <form action="" method="POST">
+            <form th:action="@{/reserva/guardar}" method="post" th:object="${reserva}">
+                <input type="hidden" th:field="*{id}" th:value="${reserva.id}"/>
                 <div class="item_titulo">
                     <label for="reserva">Reserva</label>
                 </div>
                 <div class="item-form">
-                    <input type="date" name="txtfecha" id="" value="">
-                    <input type="time" name="txthora" id="" value="">
+                    <input type="date" name="fecha" id="fecha" value="">
                 </div>
                 <div class="item-form">
-                    <input type="text" name="txtnombre" id="" placeholder="Nombre">
-                    <input type="text" name="txtapellido" id="" placeholder="Apellido">
-                    <input type="number" name="txtcelular" id="" placeholder="Telefono">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                    <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+                    <input type="number" name="telefono" id="telefono" placeholder="Telefono">
+                </div>
+                <div class="form-group">
+                    <label for="mesa">Mesa : </label>
+                    <select th:field="*{mesa}" class="form-control" required>
+                        <th:block th:each="mesa : ${mesaList}">
+                            <option th:text="${mesa.mesa}" th:value="${mesa.id}"></option>
+                        </th:block>
+                    </select>
                 </div>
                 <div class="item-form">
-                    <input type="number" name="txtcant" id="" placeholder="Personas por mesa">
+                    <input type="number" name="npersonas" id="" placeholder="Personas por mesa">
                     <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+                <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${msgExito != null}">
+                    [[${msgExito}]]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </form>
         </div>

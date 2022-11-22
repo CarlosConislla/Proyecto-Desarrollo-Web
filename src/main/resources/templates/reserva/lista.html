@@ -36,17 +36,27 @@
             <thead class="thead-light">
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">NUMERO</th>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">APELLIDOS</th>
+                <th scope="col">TELEFONO</th>
+                <th scope="col">FECHA</th>
+                <th scope="col">N°PERSONAS</th>
+                <th scope="col">N°MESA</th>
                 <th scope="col">ACCIONES</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td></td>
+            <tr th:each="reserva: ${reservaList}">
+                <th scope="row" th:text="${reserva.id}"></th>
+                <td th:text="${reserva.nombre}"></td>
+                <td th:text="${reserva.apellido}"></td>
+                <td th:text="${reserva.telefono}"></td>
+                <td th:text="${reserva.fecha}"></td>
+                <td th:text="${reserva.npersonas}"></td>
+                <td th:text="${reserva.mesa.mesa}"></td>
                 <td>
-                    <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                        class="fas fa-user-times"></i></a>
+                    <a th:href="@{'/reserva/editar'+'/'+${reserva.id}}"><i class="fas fa-edit"></i></a> |
+                    <a th:href="@{'/reserva/eliminar'+'/'+${reserva.id}}"><i class="fas fa-user-times"></i></a>
                 </td>
             </tr>
             </tbody>
