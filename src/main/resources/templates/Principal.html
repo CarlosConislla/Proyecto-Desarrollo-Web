@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <title>Hello, world!</title>
+    <title>Principal</title>
 </head>
 <body>
 
@@ -25,7 +25,7 @@
                 <a class="nav-link" href="Home.jsp">Home<span class="sr-only">(current)</span></a>
             </li>-->
             <li class="nav-item">
-                <a class="nav-link" target="miContenedor">Reservas</a>
+                <a class="nav-link" th:href="@{/reserva/lista}" target="miContenedor">Reservas</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/mensaje/lista}" target="miContenedor">Mensajes de Contacto</a>
