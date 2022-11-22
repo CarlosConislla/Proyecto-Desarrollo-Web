@@ -74,7 +74,7 @@
             <p class="parrafo">Puede venir a visitarnos de 10:00 am a 11:00 pm de la noche, atendiendo tanto de día,
                 para un delicioso
                 almuerzo, hasta la cena y disfrutar de nuestros show nocturnos y eventos sociales.</p>
-            <a class="cta">SEDES</a>
+            <a class="cta" th:href="@{sedes}">SEDES</a>
         </div>
     </section>
 
@@ -94,17 +94,17 @@
             <article class="card" id="bebidas">
 
                 <h3>BEBIDAS</h3>
-                <a  class="cta" id="card_link1">MAS</a>
+                <a  class="cta" id="card_link1" th:href="@{bebidas}">MAS</a>
             </article>
             <article class="card" id="picar">
 
                 <h3>PARA PICAR</h3>
-                <a  class="cta" id="card_link2">MAS</a>
+                <a  class="cta" id="card_link2" th:href="@{paraPicar}">MAS</a>
             </article>
             <article class="card" id="carta">
 
                 <h3>PLATOS DE LA CARTA</h3>
-                <a  class="cta" id="card_link3">MAS</a>
+                <a  class="cta" id="card_link3" th:href="@{platosCarta}">MAS</a>
             </article>
         </div>
     </section>
@@ -122,7 +122,7 @@
                 <p class="parrafo">No está permitido el ingreso de alimentos (tortas, bocaditos, etc.), decoraciones, ni
                     mascotas.
                     Agradecemos su comprensión.</p>
-                <a  class="cta">RESERVA AHORA!</a>
+                <a  class="cta" th:href="@{reservar}" >RESERVA AHORA!</a>
             </div>
             <img src="static/img/logofondo.png" th:src="@{/img/logofondo.png}" >
         </div>
