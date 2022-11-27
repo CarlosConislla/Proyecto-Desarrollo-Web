@@ -26,6 +26,18 @@ public class Usuario {
 
     private String password;
 
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -81,4 +93,5 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

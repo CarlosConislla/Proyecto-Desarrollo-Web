@@ -5,14 +5,36 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/92ca3fb065.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- DATA TABLE -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+    <script type="text/javascript">
+		$(document).ready(function () {
+			//Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
+			$('#userList').DataTable();
+		});
+
+    </script>
     <title>Productos</title>
 </head>
 <body>
+<br>
 <div class="container">
     <div class="row">
+        <br>
+        <div class="container">
+            <a th:href="@{/producto/nuevo}" style="text-decoration:none;">
+                <button class="btn btn-outline-success btn-lg">Nuevo Producto</button>
+            </a>
+        </div>
         <div class="col-md-8 mt-5 mx-auto">
             <div class="table-responsive">
-                <table class="table">
+                <table id="userList" class="table table-bordered table-hover table-striped">
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">ID</th>
@@ -40,9 +62,6 @@
                     </tr>
                     </tbody>
                 </table>
-                <a th:href="@{/producto/nuevo}" style="text-decoration:none;">
-                    <button class="btn btn-outline-success btn-lg">Nuevo Producto</button>
-                </a>
             </div>
         </div>
     </div>
