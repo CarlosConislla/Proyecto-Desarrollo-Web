@@ -34,6 +34,10 @@ public class ProductoService {
         return productoRepository.existsByNombre(nombre);
     }
 
+    public boolean existsById(Integer id){
+        return productoRepository.existsById(id);
+    }
+
     public Optional<Producto> getByNombre(String nombre){
         return productoRepository.findByNombre(nombre);
     }
