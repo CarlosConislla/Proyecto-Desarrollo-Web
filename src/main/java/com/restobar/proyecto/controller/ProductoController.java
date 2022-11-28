@@ -72,7 +72,7 @@ public class ProductoController {
     public ModelAndView actualizar(@RequestParam Integer id, Producto producto, Model modelo) {
         ModelAndView mv = new ModelAndView();
         Producto producto1 = productoService.getOne(id).get();
-        if (productoService.existsByNombre(producto.getNombre()) && productoService.getByNombre(producto.getNombre()).get().getId() != id) {
+        if (productoService.existsByNombre(producto.getNombre()) && productoService.findByNombre(producto.getNombre()).get().getId() != id) {
             mv.setViewName("producto/editar");
             List<Categoria> listaCategorias = categoriaService.list();
             modelo.addAttribute("listaCategoria", listaCategorias);

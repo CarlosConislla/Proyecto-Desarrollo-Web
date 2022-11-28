@@ -19,8 +19,12 @@
                 <div>
                     <form th:action="@{/venta/guardarVenta}" method="post" th:object="${venta}">
                         <div class="form-group">
-                            <label>Ingresa tu codigo (ID) brindado</label>
-                            <input type="text" class="form-control" name="" required th:field="*{usuario}">
+                            <label>Seleccione su nombre </label>
+                            <select th:field="*{usuario}" class="form-control form-control-sm" name="txtid_usuario">
+                                <th:block th:each="usuario: ${listaUsuario}">
+                                    <option th:text="${usuario.nombre} + ${usuario.apellidoPaterno}" th:value="${usuario.id} "></option>
+                                </th:block>
+                            </select>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-success btn-block mt-2 mb-2">Registrar</button>

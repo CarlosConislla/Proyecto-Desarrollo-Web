@@ -10,7 +10,7 @@ public class DetalleVenta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "venta_id")
     private Venta venta;
 
@@ -69,6 +69,16 @@ public class DetalleVenta {
     }
 
     public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+    public DetalleVenta(){
+
+    }
+    public DetalleVenta(Integer cantidad, Double precio, Double importe, Producto producto) {
+        this.cantidad = cantidad;
+        this.precio = precio;
+        this.importe = importe;
         this.producto = producto;
     }
 }

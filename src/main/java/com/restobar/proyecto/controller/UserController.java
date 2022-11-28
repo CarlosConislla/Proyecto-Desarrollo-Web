@@ -35,7 +35,7 @@ public class UserController {
         List<Role> roleList = roleService.listAll();
         model.addAttribute("user", new Usuario());
         model.addAttribute("roleList", roleList);
-        return "user/user_form";
+        return "/user/user_form";
     }
 
     @PostMapping("/guardar")
@@ -52,7 +52,7 @@ public class UserController {
         Usuario user = userService.FindById(id);
         model.addAttribute("user", user);
 
-        return "user/user_form";
+        return "/user/user_form";
     }
 
     @GetMapping("/eliminar/{id}")

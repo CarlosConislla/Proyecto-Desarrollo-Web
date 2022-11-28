@@ -50,11 +50,26 @@ public class DetalleVentaController {
         return "/venta/detalleVenta";
     }
 
+    @GetMapping("/buscarPlatilloNombre")
+    public String mostrarDatoDelPlatoNombre(Producto producto, Model modelo){
+        if(!productoService.existsByNombre(producto.getNombre())){
+            modelo.addAttribute("listaDetalles", listaDetalles);
+            modelo.addAttribute("total",total);
+            modelo.addAttribute("error","platillo no encontrado");
+            return "/venta/detalleVenta";
+        }
+        Producto producto1 = productoService.findByNombre(producto.getNombre()).get();
+        modelo.addAttribute("listaDetalles", listaDetalles);
+        modelo.addAttribute("total",total);
+        modelo.addAttribute("producto", producto1);
+        return "/venta/detalleVenta";
+    }
+
     Integer item=0;
     Double total;
 
     @PostMapping("/agregar")
-    public ModelAndView agregar(@RequestParam Integer id, @RequestParam Integer cantidad, Model modelo, Producto producto){
+    public ModelAndView agregarATabla(@RequestParam Integer id, @RequestParam Integer cantidad, Model modelo, Producto producto){
         Producto productoObtenido =  productoService.getOne(id).get();
         DetalleVenta detalleVenta = new DetalleVenta();
         total = 0.0;
@@ -79,7 +94,9 @@ public class DetalleVentaController {
     Venta venta1 = new Venta();
     @PostMapping("/procesar")
     public ModelAndView procesarVenta(){
-        Integer id = ventaService.findById(); //obtenemos el id de la venta ingresada
+
+        //Agregación final de la venta a la base de datos
+        Integer id = ventaService.findById(); //obtenemos el id de la venta ingresada, la ultima
         venta.setId(id);
         //venta.setTotal(total);
         venta1 = ventaService.getOne(id).get();
@@ -90,9 +107,23 @@ public class DetalleVentaController {
             detalleVenta.setVenta(venta);
             detalleVentaService.save(detalleVenta);
         }
+
+        //Actualización del Stock de bebidas
+        for (int i=0; i<listaDetalles.size(); i++){
+            Producto productoUpdate=listaDetalles.get(i).getProducto();
+            int idProductoUpdate=listaDetalles.get(i).getProducto().getId();
+
+            int cantidad = listaDetalles.get(i).getCantidad();
+            int aux = listaDetalles.get(i).getProducto().getCantidad();
+
+            int cantidadUpdate = aux-cantidad;
+            //productoUpdate.setId(idProductoUpdate);
+            productoUpdate.setCantidad(cantidadUpdate);
+            productoService.save(productoUpdate);
+        }
         venta = new Venta();
         venta1 = new Venta();
         listaDetalles.clear();
-        return new ModelAndView("redirect:/venta/mesa");
+        return new ModelAndView("/venta/ventasGenerales");
     }
 }

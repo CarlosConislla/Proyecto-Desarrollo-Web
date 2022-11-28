@@ -16,11 +16,19 @@
                 <div>
                     <form th:action="@{/detalleVenta/buscarPlatillo}" method="get" th:object="${producto}">
                         <div class="form-group">
-                            <label>Ingresar id del platillo:</label>
+                            <label>Ingresar id:</label>
                             <input type="number" class="form-control" name="id" th:field="*{id}">
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Mostrar">
+                        <input type="submit" class="btn btn-primary mt-3 mb-3" value="Mostrar">
                     </form>
+                    <form th:action="@{/detalleVenta/buscarPlatilloNombre}" method="get" th:object="${producto}">
+                        <div class="form-group">
+                            <label>Ingresar el nombre :</label>
+                            <input type="text" class="form-control" name="id" th:field="*{nombre}">
+                        </div>
+                        <input type="submit" class="btn btn-primary mt-3 mb-3" value="Mostrar">
+                    </form>
+
                     <div th:if="${error}" class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
                         <p th:text="${error}"></p>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -37,7 +45,7 @@
                             <label>Cantidad</label>
                             <input type="number" class="form-control" name="cantidad" required>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Registrar">
+                        <input type="submit" class="btn btn-primary mt-2 mb-2" value="Registrar">
                     </form>
                 </div>
             </div>
@@ -73,7 +81,7 @@
             <div class="card-footer d-flex">
                 <form method="post" th:action="@{/detalleVenta/procesar}">
                     <div class="col-sm-6">
-                        <button class="btn btn-outline-info  mt-2">Procesar Venta</button>
+                        <button class="btn btn-outline-info  mt-2 mb-2">Procesar Venta</button>
                     </div>
                 </form>
                 <div class="col-sm-3 ml-auto">
