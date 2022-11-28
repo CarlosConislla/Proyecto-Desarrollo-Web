@@ -1,71 +1,131 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/92ca3fb065.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/92ca3fb065.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Sistema de ventas</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto text-center">
+
+            <!--<li class="nav-item active">
+                <a class="nav-link" href="Home.jsp">Home<span class="sr-only">(current)</span></a>
+            </li>-->
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/reserva/lista}" sec:authorize="isAuthenticated()">Reservas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/mensaje/lista}" sec:authorize="isAuthenticated()">Mensajes de
+                    Contacto</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/categoria/lista}" sec:authorize="isAuthenticated()">Categorias</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/producto/lista}" sec:authorize="isAuthenticated()">Productos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/user/lista}" sec:authorize="isAuthenticated()">Usuarios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/venta/hacerVenta}" sec:authorize="isAuthenticated()">Ventas</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    Usuario
+                </a>
+                <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown"
+                    sec:authorize="isAuthenticated()">
+                    <!--sec:authorize="isAuthenticated()"-->
+                    <li><i class="fas fa-user"></i></li>
+                    <li>User: [[${#httpServletRequest.remoteUser}]]</li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="btn btn-danger" th:href="@{/logout}">Cerrar Sesion</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div class="row justify-content-center">
-  <div class="col-md6 col-lg-4">
-    <h3 class="h3 text-center">Registro de Usuarios</h3>
-    <br>
-    <form th:action="@{/user/guardar}" method="post" th:object="${user}">
-      <input type="hidden" th:field="*{id}" th:value="${user.id}"/>
-      <div class="mb-2">
-        <label for="rol">Nombre: </label>
-        <input id="rol" type="text" placeholder="Digite el nombre" th:field="*{nombre}"
-               class="form-control">
-        <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="invalid-feedback"></div>
-      </div>
-      <div class="mb-2">
-        <label for="rol">Apellido Paterno: </label>
-        <input id="rol" type="text" placeholder="Digite el apellido Paterno" th:field="*{apellidoPaterno}"
-               class="form-control">
-        <div th:if="${#fields.hasErrors('apellidoPaterno')}" th:errors="*{apellidoPaterno}" class="invalid-feedback"></div>
-      </div>
-      <div class="mb-2">
-        <label for="rol">Apellido Materno: </label>
-        <input id="rol" type="text" placeholder="Digite el apellido Paterno" th:field="*{apellidoMaterno}"
-               class="form-control">
-        <div th:if="${#fields.hasErrors('apellidoMaterno')}" th:errors="*{apellidoMaterno}" class="invalid-feedback"></div>
-      </div>
-      <div class="mb-2">
-        <label for="rol">Celular: </label>
-        <input id="rol" type="text" placeholder="Digite el celular" th:field="*{celular}"
-               class="form-control">
-        <div th:if="${#fields.hasErrors('celular')}" th:errors="*{celular}" class="invalid-feedback"></div>
-      </div>
-      <div class="mb-2">
-        <label for="rol">Correo: </label>
-        <input id="rol" type="email" placeholder="Digite el correo" th:field="*{correo}"
-               class="form-control">
-        <div th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}" class="invalid-feedback"></div>
-      </div>
-      <div class="mb-2">
-        <label for="rol">Password: </label>
-        <input id="rol" type="text" placeholder="Digite el password" th:field="*{password}"
-               class="form-control">
-        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="invalid-feedback"></div>
-      </div>
-      <div class="form-group">
-        <label for="role">Rol : </label>
-        <select th:field="*{role}" class="form-control" required>
-          <th:block th:each="role : ${roleList}">
-            <option th:text="${role.authority}" th:value="${role.id}"></option>
-          </th:block>
-        </select>
-      </div>
-      <br>
-      <div class="text-end text-center">
-        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i>&nbsp;Guardar</button>
-        <a href="/user/lista" class="btn btn-primary ms-2"><i class="fas fa-backward"></i>&nbsp;Cancelar </a>
-      </div>
-    </form>
-  </div>
+    <div class="col-md6 col-lg-4">
+        <h3 class="h3 text-center">Registro de Usuarios</h3>
+        <br>
+        <form th:action="@{/user/guardar}" method="post" th:object="${user}">
+            <input type="hidden" th:field="*{id}" th:value="${user.id}"/>
+            <div class="mb-2">
+                <label for="rol">Nombre: </label>
+                <input id="rol" type="text" placeholder="Digite el nombre" th:field="*{nombre}"
+                       class="form-control">
+                <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-2">
+                <label for="rol">Apellido Paterno: </label>
+                <input id="rol" type="text" placeholder="Digite el apellido Paterno" th:field="*{apellidoPaterno}"
+                       class="form-control">
+                <div th:if="${#fields.hasErrors('apellidoPaterno')}" th:errors="*{apellidoPaterno}"
+                     class="invalid-feedback"></div>
+            </div>
+            <div class="mb-2">
+                <label for="rol">Apellido Materno: </label>
+                <input id="rol" type="text" placeholder="Digite el apellido Paterno" th:field="*{apellidoMaterno}"
+                       class="form-control">
+                <div th:if="${#fields.hasErrors('apellidoMaterno')}" th:errors="*{apellidoMaterno}"
+                     class="invalid-feedback"></div>
+            </div>
+            <div class="mb-2">
+                <label for="rol">Celular: </label>
+                <input id="rol" type="text" placeholder="Digite el celular" th:field="*{celular}"
+                       class="form-control">
+                <div th:if="${#fields.hasErrors('celular')}" th:errors="*{celular}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-2">
+                <label for="rol">Correo: </label>
+                <input id="rol" type="email" placeholder="Digite el correo" th:field="*{correo}"
+                       class="form-control">
+                <div th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-2">
+                <label for="username">User: </label>
+                <input id="username" type="text" placeholder="Digite el User" th:field="*{username}"
+                       class="form-control">
+                <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-2">
+                <label for="rol">Password: </label>
+                <input id="rol" type="text" placeholder="Digite el password" th:field="*{password}"
+                       class="form-control">
+                <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="invalid-feedback"></div>
+            </div>
+            <br>
+            <div class="text-end text-center">
+                <button type="submit" class="btn btn-success"><i class="fas fa-save"></i>&nbsp;Guardar</button>
+                <a href="/user/lista" class="btn btn-primary ms-2"><i class="fas fa-backward"></i>&nbsp;Cancelar </a>
+            </div>
+        </form>
+    </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>

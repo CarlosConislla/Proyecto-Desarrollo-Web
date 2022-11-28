@@ -1,6 +1,8 @@
 package com.restobar.proyecto.modelo;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "usuarios")
@@ -24,18 +26,28 @@ public class Usuario {
 
     private String correo;
 
+    private String username;
+
     private String password;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-    private Role role;
+    private Boolean enabled;
 
-    public Role getRole() {
-        return role;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "role_id")
+    private List<Role> roles;
+
+
+    public Usuario() {
+        roles = new ArrayList<Role>();
+        enabled = true;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     public Integer getId() {
@@ -86,6 +98,14 @@ public class Usuario {
         this.correo = correo;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -94,4 +114,11 @@ public class Usuario {
         this.password = password;
     }
 
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 }
