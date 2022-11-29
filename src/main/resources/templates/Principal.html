@@ -46,7 +46,7 @@
                 <a class="nav-link" th:href="@{/venta/hacerVenta}"  sec:authorize="isAuthenticated()">Ventas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link"  th:href="@{/venta/lista}" target="miContenedor">Ventas Generales</a>
+                <a class="nav-link"  th:href="@{/venta/lista}" sec:authorize="isAuthenticated()">Ventas Generales</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

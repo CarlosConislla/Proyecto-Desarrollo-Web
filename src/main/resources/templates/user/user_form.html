@@ -40,6 +40,9 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/venta/hacerVenta}" sec:authorize="isAuthenticated()">Ventas</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/venta/lista}" sec:authorize="isAuthenticated()">Ventas Generales</a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                    data-bs-toggle="dropdown" aria-expanded="false">
@@ -112,7 +115,7 @@
             <br>
             <div class="text-end text-center">
                 <button type="submit" class="btn btn-success"><i class="fas fa-save"></i>&nbsp;Guardar</button>
-                <a href="/user/lista" class="btn btn-primary ms-2"><i class="fas fa-backward"></i>&nbsp;Cancelar </a>
+                <a href="/principal" class="btn btn-primary ms-2"><i class="fas fa-backward"></i>&nbsp;Cancelar </a>
             </div>
         </form>
     </div>

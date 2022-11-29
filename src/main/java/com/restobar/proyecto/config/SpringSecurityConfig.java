@@ -42,13 +42,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/detalleVenta").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
                     .antMatchers("/detalleVenta/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
                     // Para que solo un usuario logueado con esos roles acceda al modulo de Mensajes
-                    .antMatchers("/mensaje").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
-                    .antMatchers("/mensaje/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
+                    .antMatchers("/mensaje").permitAll()
+                    .antMatchers("/mensaje/**").permitAll()
                     // Para que solo un usuario logueado con esos roles acceda al modulo de Productos
                     .antMatchers("/producto/**").access("hasRole('ROLE_ADMIN')")
                     // Para que solo un usuario logueado con esos roles acceda al modulo de Reservas
-                    .antMatchers("/reserva").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
-                    .antMatchers("/reserva/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
+                    .antMatchers("/reserva").permitAll()
+                    .antMatchers("/reserva/**").permitAll()
                     // Para que solo un usuario logueado con esos roles acceda al modulo de Ventas
                     .antMatchers("/venta").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
                     .antMatchers("/venta/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
